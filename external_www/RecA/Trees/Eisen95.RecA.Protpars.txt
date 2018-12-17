@@ -1,0 +1,143 @@
+Protpars Maximum Parsimony tree of RecA proteins.
+
+Majority-rule and strict consensus tree program, version 3.52c
+
+CONSENSUS TREE:
+the numbers at the forks indicate the number
+of times the group consisting of the species
+which are to the right of that fork occurred
+among the trees, out of 100.00 trees
+
+  +----------------------------------------------------------------------------------------------Aquifex pyrophilis
+  !
+  !                                                                          +-------------------Brucella abortus
+  !                                                                          !
+  !                                                                          !              +----Rhizobium leguminosarum viciae
+  !                                                                     +-97.4         +-91.8
+  !                                                                     !    !    +-93.8    +----Rhizobium leguminosarum phaseoli 
+  !                                                                     !    !    !    !
+  !                                                                     !    +-90.9    +---------Agrobacterium tumefaciens
+  !                                                                +-77.0         !
+  !                                                                !    !         +--------------Rhizobium meliloti
+  !                                                                !    !
+  !                                                                !    !                   +----Magnetospirillum magnetotacticum
+  !                                                           +-57.4    +----------------46.6
+  !                                                           !    !                        +----Acetobacter polyoxogenes
+  !                                                           !    !
+  !                             +--------------------------14.4    !                        +----Rhodobacter capsulatus
+  !                             !                             !    +---------------------100.0
+  !                             !                             !                             +----Rhodobacter sphaeroides
+  !                             !                             !
+  !                             !                             +----------------------------------Rickettsia prowazekii
+  !                             !
+  !                             !                                                           +----Proteus mirabilis
+  !                             !                                       +----------------100.0
+  !                             !                                       !                   +----Proteus vulgaris
+  !                             !                                       !
+  !                             !                                       !                   +----Serratia marcescens 
+  !                             !                                  +-93.1              +-31.5
+  !                             !                                  !    !         +-31.5    +----Erwinia carotovora
+  !                             !                                  !    !         !    !
+  !                             !                                  !    !    +-55.6    +---------Enterobacter agglomerans
+  !                             !                                  !    !    !    !
+  !                             !                                  !    +-47.2    +--------------Yersinia pestis
+  !                             !                             +-100.0         !
+  !                             !                             !    !         !              +----Escherichia coli
+  !                             !                             !    !         +-----------100.0
+  !                             !                             !    !                        +----Shigella flexneri          
+  !                             !                        +-78.0    !
+  !                        +-10.2                        !    !    !                        +----Vibrio anguillarum
+  !                        !    !                        !    !    +---------------------99.0
+  !                        !    !                        !    !                             +----Vibrio cholerae 
+  !                        !    !                        !    !
+  !                        !    !                   +-42.3    +----------------------------------Haemophilus influenzae 
+  !                        !    !                   !    !
+  !                        !    !                   !    !                             +---------Pseudomonas aeruginosa
+  !                        !    !                   !    !                        +-48.3
+  !                        !    !                   !    !                        !    !    +----Pseudomonas fluorescens 
+  !                        !    !              +-33.1    +---------------------100.0    +-77.3
+  !                        !    !              !    !                             !         +----Pseudomonas putida
+  !                        !    !              !    !                             !
+  !                        !    !         +-11.1    !                             +--------------Azotobacter vinelandii
+  !                        !    !         !    !    !
+  !                        !    !         !    !    +--------------------------------------------Acinetobacter calcoaceticus
+  !                        !    !         !    !
+  !                        !    !    +-13.2    +-------------------------------------------------Xanthomonas oryzae
+  !                        !    !    !    !
+  !                   +-11.0    !    !    !                                                 +----Acidipilum facilis
+  !                   !    !    !    !    !                                            +-100.0
+  !                   !    !    !    !    +-----------------------------------------34.7    +----Thiobacillus ferrooxidans
+  !                   !    !    !    !                                                 !
+  !                   !    !    !    !                                                 +---------Legionella pneumophila
+  !                   !    !    +-52.9
+  !                   !    !         !                                                      +----Methylophilus methylotrophus
+  !                   !    !         !                                                 +-100.0
+  !                   !    !         !                                            +-63.5    +----Methylomonas clara
+  !                   !    !         !                                            !    !
+  !                   !    !         !                                       +-74.0    +---------Methylobacillus flagellatum
+  !              +-13.7    !         !                                       !    !
+  !              !    !    !         !                                       !    !         +----Bordeteela pertussis
+  !              !    !    !         +------------------------------------23.9    +------97.0
+  !              !    !    !                                                 !              +----Burkholderia cepacia
+  !              !    !    !                                                 !
+  !              !    !    !                                                 +-------------------Neeisseria gonorrhoeae
+  !              !    !    !
+  !              !    !    !                                                                +----Campylobacter jejuni
+  !              !    !    +-------------------------------------------------------------100.0
+  !              !    !                                                                     +----Helicobacter pylori
+  !              !    !
+  !              !    !                                                                     +----Myxococcus xanthus2
+  !              !    +------------------------------------------------------------------43.1
+  !              !                                                                          +----Myxococcus xanthus1
+  !              !
+  !              !                                                                          +----Streptomyces lividans
+  !              !                                                                     +-96.5
+  !              !                                                                +-100.0   +----Streptomyces ambofaciens
+  !              !                                                                !    !
+  !         +--2.5                                                           +-72.4    +---------Streptomyces violaceus 
+  !         !    !                                                           !    !
+  !         !    !                                                           !    !         +----Mycpbacterium leprae
+  !         !    !                                                      +-97.0    +------100.0
+  !         !    !                                                      !    !              +----Mycobacterium tuberculosis
+  !         !    !                                                      !    !
+  !         !    !                                                 +-31.1    +-------------------Corynebacterium glutamicum
+  !         !    !                                                 !    !
+  !         !    !                                                 !    !         +--------------Arabidopsis thaliana
+  !         !    !                                                 !    +------100.0
+  !         !    !                                                 !              !    +---------Synechococcus sp. PCC7002 
+  !         !    !                                                 !              +-100.0
+  !         !    !                                            +--5.2                   !    +----Anabaena variabilis
+  !         !    !                                            !    !                   +-58.5
+  !         !    !                                            !    !                        +----Synechococcus sp. PCC7942
+  !         !    !                                            !    !
+  !         !    !                                            !    !                        +----Lactococcus lactis
+  !    +-36.8    !                                            !    !              +------100.0
+  !    !    !    !                                            !    !              !         +----Streptococcus pneumoniae
+  !    !    !    !                                            !    +-----------26.8
+  !    !    !    +------------------------------------------5.0                   !         +----Bacillus subtilis
+  !    !    !                                                 !                   !    +-51.9
+  !    !    !                                                 !                   +-34.2    +----Staphylococcus aureus
+  !    !    !                                                 !                        !
+  !    !    !                                                 !                        +---------Acholeplasma laidlawii
+  !    !    !                                                 !
+  !    !    !                                                 !                   +--------------Borrelia burgdorferi
+  !    !    !                                                 !                   !
+  +-100.0   !                                                 +----------------10.2         +----Mycoplasma pulmonis
+       !    !                                                                     !    +-88.0
+       !    !                                                                     +-21.4    +----Mycoplasma mycoides 
+       !    !                                                                          !
+       !    !                                                                          +---------Chlamydia trachomatis
+       !    !
+       !    !                                                                               +----Thermotoga maritima
+       !    +----------------------------------------------------------------------------12.6
+       !                                                                                    +----Bacteroides fragilis
+.......!
+       !                                                                                    +----Thermus thermophilus
+       !                                                                               +-100.0
+       +----------------------------------------------------------------------------95.0    +----Thermus aquaticus
+                                                                                       !
+                                                                                       +---------Deinococcus radiodurans
+
+
+  remember: (though rerooted by outgroup) this is an unrooted tree!
+

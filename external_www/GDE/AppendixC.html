@@ -1,0 +1,209 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 2.0 Mac">
+  <TITLE>Appendix C, External functions</TITLE>
+</HEAD>
+<BODY>
+
+<H2>Appendix C, External functions</H2>
+
+<UL>
+  <LI><B>ClustalV</B> - Cluster multiple sequence alignment
+  <UL>
+    <LI><I>Author</I>: Des Higgins.
+    <LI><I>Reference</I>:
+    <UL>
+      <LI>Higgins,D.G. Bleasby,A.J. and Fuchs,R. (1991) CLUSTAL V: improved software
+      for multiple sequence alignment. ms. submitted to CABIOS
+    </UL>
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI><I>k-tuple pairwise search</I>. Word size for pairwise comparisons
+      <LI><I>Window size</I>. Smaller values give faster alignments,larger values
+      are more sensitive.
+      <LI><I>Transitions weighted</I>. Can weight transitions twice as high as
+      transversions (DNA only).
+      <LI><I>Fixed gap penalty</I>. Gap insertion penalty, lower value, more
+      gaps
+      <LI><I>Floating gap penalty</I>. Gap extension penalty, lower value, longer
+      gaps
+    </UL>
+    <LI><I>Comments</I>: ClustalV is a directed multiple sequence alignment
+    algorithm that aligns a set of sequences based on their level of similarity.
+    It first uses a Lipman Peasron pairwise similarity scoring to find &quot;clusters&quot;
+    of similar sequences, and pre-aligns those sequences. It then adds other
+    sequences to the alignment in the order of their similarity so as to produce
+    the cleanest alignment.
+    <LI><I>Warning</I>: ClustalV only uses unambiguous character codes. It
+    will also convert all sequences to upper case in the process of aligning.
+    Clustal does not pass back comments, author etc. Be sure to keep copies
+    of your sequences if you do not wish to lose this information.
+  </UL>
+  <P><BR>
+  <BR>
+  
+  <LI><B>MFOLD</B> - RNA secondary prediction
+  <UL>
+    <LI><I>Author</I>: Michael Zuker
+    <LI><I>Reference</I>:
+    <UL>
+      <LI>M. Zuker. On Finding All Suboptimal Foldings of an RNA Molecule. Science,
+      244, 48-52, (1989)
+      <LI>J. A. Jaeger, D. H. Turner and M. Zuker. Improved Predictions of Secondary
+      Structures for RNA. Proc. Natl. Acad. Sci. USA, BIOCHEMISTRY, 86, 7706-7710,
+      (1989)
+      <LI>J. A. Jaeger, D. H. Turner and M. Zuker. Predicting Optimal and Suboptimal
+      Secondary Structure for RNA. in &quot;Molecular Evolution: Computer Analysis
+      of Protein and Nucleic Acid Sequences&quot;, R. F. Doolittle ed. Methods
+      in Enzymology, 183, 281-306 (1989)
+    </UL>
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI>Linear/circular RNA fold
+      <LI>File to save results
+    </UL>
+    <LI><I>Comments</I>: MFOLD passes it's output to a program Zuk_to_gen that
+    translates the secondary structure prediction to a nested bracket ([])
+    notation. This notation can then be used in the Highlight Helix, and Draw
+    Secondary structure (LoopTool) functions. MFOLD currently does not support
+    much in the way of additional parameters. We hope to have all additional
+    parameters available soon.
+  </UL>
+  <P><BR>
+  
+  <LI><B>Blast</B> - Basic Local Alignment Search Tool
+  <UL>
+    <LI><I>Reference</I>:
+    <UL>
+      <LI>Karlin, Samuel and Stephen F. Altschul (1990). Methods for assessing
+      the statistical significance of molecular sequence features by using general
+      scoring schemes, Proc. Natl. Acad. Sci. USA 87:2264-2268.
+      <LI>Altschul, Stephen F., Warren Gish, Webb Miller, Eugene W. Myers, and
+      David J. Lipman (1990). Basic local alignment search tool, J. Mol. Biol.
+      215:403-410.
+      <LI>Altschul, Stephen F. (1991). Amino acid substitution matrices from
+      an information theoretic perspective. J. Mol. Biol. 219:555-565.
+    </UL>
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI><I>Which Database</I>. Which nucleic or amino acid database to search.
+      <LI><I>Word Size</I>. Length of initial hit. after locating a match of
+      this length, alignment extension is attempted.
+      <LI>Blastn
+      <UL>
+        <LI><I>Match score</I>. Score for matches in secondary alignment extension
+        <LI><I>Mismatch score</I>. Score for mismatches in secondary alignment
+        extension
+      </UL>
+      <LI>Blastx, tblastn, blastp, blast3
+      <UL>
+        <LI><I>Substitution Matrix</I>. PAM120 or PAM250
+      </UL>
+    </UL>
+    <LI><I>Comments</I>: The report is loaded into a text editor. This should
+    be saved as a new file as the default file is removed after execution.
+    The latest version of blast can be obtained via anonymous ftp to ncbi.nlm.nih.gov.
+  </UL>
+  <P><BR>
+  
+  <LI><B>FastA </B>- Similarity search
+  <UL>
+    <LI><I>Reference</I>:
+    <UL>
+      <LI>W.R. Pearson and D. J. Lipman (1988),&quot;Improved Tools for Biological
+      Sequence Analysis&quot;, PNAS 85:2444-2448
+      <LI>W.R. Pearson (1990) &quot;Rapid and Sensitive Sequence Comparison with
+      FASTP and FASTA&quot; Methods in Enzymology 183:63-98
+    </UL>
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI><I>Database</I>. Which database to search
+      <LI><I>Number of alignments to report.</I>
+      <LI><I>SMATRIX</I>. Which similarity matrix to use
+    </UL>
+    <LI><I>Comments</I>: The FastA package includes several additional programs
+    for pairwise alignment. We have only included a bare bones link to FastA.
+    We hope to include a more complete setup for the actual 2.2 release.
+  </UL>
+  <P><BR>
+  
+  <LI><B>Assemble Contigs</B> - CAP Contig Assembly Program
+  <UL>
+    <LI>Author - Xiaoqiu Huang <BR>
+    Department of Computer Science<BR>
+    Michigan Technological University<BR>
+    Houghton, MI 49931<BR>
+    E-mail: huang@cs.mtu.edu<BR>
+    <BR>
+    Minor modifications for I/O by S. Smith <BR>
+    
+    <LI><I>Reference</I>: &quot;A Contig Assembly Program Based on Sensitive
+    Detection of Fragment Overlaps&quot; (submitted to Genomics, 1991)
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI><I>Minimum overlap</I>. Number of bases required for overlap.
+      <LI><I>Percent match within overlap</I>. Percentage match required in the
+      overlap region before merge is alowwed.
+    </UL>
+    <LI><I>Comments</I>: CAP returns the aligned sequences to the current editor
+    window. The sequences are placed into contigs by setting the groupid. Cap
+    does not change the order of the sequences, and so the results should be
+    sorted by group and offset (see sort under the Edit menu).
+  </UL>
+  <P><BR>
+  
+  <LI><B>Lsadt</B> - Least squares additive tree analysis
+  <UL>
+    <LI><I>Author</I>: Geert De Soete, 'C' implementation by Mike Maciukenas
+    University of Illinois
+    <LI><I>Reference</I>:LSADT, 1983 Psychometrika, 1984 Quality and Quantity
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI>Distance correction to use in distance matrix calculations (see count
+      below).
+      <LI>What should be used for initial parameters estimates.
+      <LI>Random number seed.
+      <LI>Display method (See TreeTool below).
+    </UL>
+    <LI><I>Comments</I>: The program has been rewritten in 'C' and will be
+    included with the rRNA Database phylogenetic package being written at the
+    University of Illinois Department of Microbiology. <BR>
+    <BR>
+    Count is a short program to calculate a distance matrix from a sequence
+    alignment (see below).
+  </UL>
+  <P><BR>
+  
+  <LI><B>Count</B> - Distance matrix calculator
+  <UL>
+    <LI><I>Author</I>: Steven Smith
+    <LI><I>Parameters</I>:
+    <UL>
+      <LI><I>Correction method.</I> Currently Jukes-Cantor or none
+      <LI>Include dashed columns.
+      <LI>Match upper case to lower.
+    </UL>
+    <LI><I>Comments</I>: Passes back a distance matrix in a format readable
+    by LSADT.
+  </UL>
+  <P><BR>
+  
+  <LI><B>Treetool</B> - Tree drawing/manipulation
+  <UL>
+    <LI><I>Author</I>: Michael Maciukenas, University of Illinois
+    <LI><I>Comments</I>: See included documentation for TreeTool usage.
+  </UL>
+  <P><BR>
+  
+  <LI><B>Readseq</B> - format conversion program
+  <UL>
+    <LI><I>Author</I>: Don Gilbert
+    <LI><I>Parameters</I>: Many, but can easily be run in interactive mdoe.
+    <LI><I>Comments</I>: Readseq is a very useful program for format conversion.
+    The latest versionsupports over a dozen different file formats, as well
+    as formating capabilities for publication. GDE makes of Readseq for importing
+    and exporting seqeuences as well as a filtering tool to some external functions.
+  </UL>
+</UL>
+</BODY>
+</HTML>

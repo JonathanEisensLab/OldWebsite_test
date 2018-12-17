@@ -1,0 +1,209 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 2.0 Mac">
+  <TITLE>Appendix A, File Formats</TITLE>
+</HEAD>
+<BODY>
+
+<H2>Appendix A, File Formats</H2>
+
+<P>The currently supported file formats include GDE data files, Genbank
+formatted files (with type extensions), a generic flat file format, and
+a color mask file.</P>
+
+<UL>
+  <LI><B>GDE format.</B> GDE format is a tagged field format used for storing
+  all available information about a sequence. The format matches very closely
+  the GDE internal structures for sequence data. The format consists of text
+  records starting and ending with braces ('{}'). Between the open and close
+  braces are several tagged field lines specifying different pieces of information
+  about a given sequence. The tag values can be wrapped with double quote
+  characters ('&quot;&quot;') as needed. If quotes are not used, the first
+  whitespace delimited string is taken as the value. The allowable fields
+  are: <BR>
+  
+  <UL>
+    <DL>
+      <DT>{
+      <DT>name &quot;Short name for sequence&quot;
+      <DT>longname &quot;Long (more descriptive) name for sequence&quot;
+      <DT>sequence-ID &quot;Unique ID number&quot;
+      <DT>creation-date &quot;mm/dd/yy hh:mm:ss&quot;
+      <DT>direction [-1|1]
+      <DT>strandedness [1|2]
+      <DT>type [DNA|RNA||PROTEIN|TEXT|MASK]
+      <DT>offset (-999999,999999)
+      <DT>group-ID (0,999)
+      <DT>creator &quot;Author's name&quot;
+      <DT>descrip &quot;Verbose description&quot;
+      <DT>comments &quot;Lines of comments that can be fairly arbitrary text
+      about a sequence. Return characters are allowed, but no internal double
+      quotes or brace characters. Remember to close with a double quote&quot;
+      <DT>sequence &quot;gctagctagctagctagctcttagctgtagtcgtagctgatgctagct gatgctagctagctagctagctgatcgatgctagctgatcgtagctgacg
+      gactgatgctagctagctagctagctgtctagtgtcgtagtgcttattgc&quot;
+      <DT>}<BR>
+      <BR>
+      Any fields that are not specified are assumed to be the default values.
+      Offsets can be negative as well as positive. Genbank entries written out
+      in this format will have all (&quot;) converted to ('), and all ({}) converted
+      to ([]) to avoid confusion in the parser. Leading and trailing gaps are
+      removed prior to writing each sequence. This format is deliberately verbose
+      in order to be simple to duplicate. <BR>
+      <BR>
+      
+    </DL>
+  </UL>
+  <LI><B>Genbank format:</B> GDE can read a concatenated list of Genbank
+  entries, and extract certain fields from such files. The default method
+  for storing nucleic acid, amino acid, masking sequences or text is in Genbank
+  format. The following fields are recognized: <BR>
+  <BR>
+  
+  <UL>
+    <LI>LOCUS: Short name for this sequence (Maximum of 32 characters)&Yacute;
+    <LI>DEFINITION: Definition of sequence (Maximum of 80 characters)
+    <LI>ORGANISM: Full name of organism (Maximum of 80 characters)
+    <LI>AUTHORS: Authors of this sequence (Maximum of 80 characters)
+    <LI>ACCESSION: ID Number for this sequence (Maximum of 80 characters)
+    <LI>ORIGIN: Beginning of sequence data&Yacute;
+    <LI>// End of sequence data&Yacute;
+  </UL>
+  <P><BR>
+  <BR>
+  All other lines are retained as comments. The LOCUS line also specifies
+  what type of sequence follows. The form of this line is: <BR>
+  <BR>
+  
+  <UL>
+    <LI>LOCUS name size bp type date
+  </UL>
+  <P><BR>
+  <BR>
+  where name is the Genbank Locus name, size is total base count, type is
+  one of DNA, RNA, PROTEIN, MASK, or TEXT and date is of the form dd-MON-yyyy.
+  In this way, the standard Genbank format is extended to store all text,
+  mask and protein data. The Genbank character set has also been extended
+  in order to support these other data types. Valid characters are: <BR>
+  <BR>
+  
+  <UL>
+    <LI>DNA/RNA: Full IUPAC coding as well as '-' and '~' characters for alignment
+    gaps
+    <LI>Protein: All valid single letter codes plus '-' and '~'. Other ASCII
+    characters may be inserted, however external functions may be confused
+    by such characters.
+    <LI>Mask: All legal printable ASCII characters. If used as a selection
+    mask, all columns containing a '0' will be removed from any analysis.
+    <LI>Text: All valid ASCII characters.
+  </UL>
+</UL>
+
+<BLOCKQUOTE>
+  <P><BR>
+  <BR>
+  Here is a valid Genbank entry for two E.coli tRNA's: <BR>
+  </P>
+</BLOCKQUOTE>
+
+<UL>
+  <UL>
+    <DL>
+      <DT>LOCUS ECOTRNT4 76 bp RNA 28-JAN-1991
+      <DT>DEFINITION E. coli (T4 infected) vulnerable tRNA (A).
+      <DT>ORGANISM Escherichia coli AUTHORS Amitsur,M., Levitz,R. and Kaufmann,G.
+      <DT>FEATURES From To/Span Description tRNA 1 76 vulnerable tRNA(A)
+      <DT>BASE COUNT ?
+      <DT>ORIGIN
+      <DT> 1 GGGUCGUUAG CUCAGUUGGU AGAGCAGUUG ACUUUUAAUC AAUUGGNCGC AGGUUCGAAU
+      61 CCUGCACGAC CCACCA
+      <DT>//
+      <DT>&nbsp;
+      <DT>LOCUS
+      <DT>ECOTRQ1 75 bp RNA 28-JAN-1991
+      <DT>DEFINITION E.coli Gln-tRNA-1.
+      <DT>ORGANISM Escherichia coli
+      <DT>AUTHORS Yaniv,M. and Folk,W.R.
+      <DT>SOURCE -REFERENCE [1] JOURNAL J. Biol. Chem. 250, 3243-3253 (1975)
+      <DT>FEATURES From To/Span Description tRNA 1 75 Gln-tRNA-1 (NAR: 0510)
+      refnumbr 1 1 sequence not numbered in [1]
+      <DT>BASE COUNT ?
+      <DT>ORIGIN
+      <DT>1 UGGGGUAUCG CCAAGCGGUA AGGCACCGGU UUUUGAUACC GGCAUUCCCU GGUUCGAAUC
+      61 CAGGUACCCC AGCCA
+      <DT>// 
+    </DL>
+  </UL>
+  <P>&nbsp;
+  <LI><B>Flat file format:</B> This is a simplified format for importing
+  sequence data, and passing it out to analysis functions. Very little information
+  is actually retained in this format, and should be used carefully so as
+  not to lose attribute information. It is defined as follow: <BR>
+  <BR>
+  
+  <UL>
+    <LI>type_character short_name
+    <LI>sequence_data
+    <LI>sequence_data
+    <LI>sequence_data
+    <LI>...
+  </UL>
+  <P><BR>
+  <BR>
+  The type character is # for DNA/RNA, % for protein sequence, @ for mask
+  sequence, and &quot; for text. The short name is the same as the LOCUS
+  line in Genbank. This is followed by lines of sequence, each ending with
+  a return character.These lines are read until the next type character is
+  encountered, or until the end of the file is reached. Care should be taken
+  in using this format with text as space characters are stripped automatically.
+  As of release 2.0, flat file format allows for an optional offset to be
+  specified in parentheses after the sequence name. An offset represents
+  how many leading gap characters should be placed before the start of a
+  sequence. If this offset does not exist, then it is defined to be 0. <BR>
+  <BR>
+  Here is a sample flat file for two Ecoli tRNA's: <BR>
+  <BR>
+  #ECOTRNT4 GGGUCGUUAGCUCAGUUGGUAGAGCAGUUGACUUUUAAUCAAUUGGNCGCAGGUUCGAAU
+  CCUGCACGACCCACCA
+  <P>#ECOTRQ1 UGGGGUAUCGCCAAGCGGUAAGGCACCGGUUUUUGAUACCGGCAUUCCCUGGUUCGAAUC
+  CAGGUACCCCAGCCA<BR>
+  <BR>
+  
+  <LI><B>Color mask:</B> The format for a color mask has been kept simple
+  to make implementation of color functions easy. The format optionally defines
+  which sequence to color, whether or not to color alignment gaps in the
+  existing sequence, and how long the following mask will be. It is then
+  followed by a list of decimal color codes (range 0 to 15) for each position
+  in the sequence. There are four keywords used in the color mask file. Those
+  keywords are: <BR>
+  <BR>
+  
+  <UL>
+    <LI>name:short name. If short name matches a currently loaded sequence,
+    then impose this color mask on that sequence. If this line is omitted,
+    then color all sequences this color, and the color mask is expected to
+    start at the leftmost column on the screen.
+    <LI>length:length. The following list in length long
+    <LI>nodash: Skip over dash characters when imposing this color mask on
+    the named sequence. This allows an unaligned color mask to be placed over
+    aligned sequence.
+    <LI>start: Begin reading the color mask on the next line.
+  </UL>
+  <DL>
+    <DT><BR>
+    <BR>
+    Here is a sample color mask file: 
+    <DL>
+      <DT><BR>
+      <BR>
+      name:test_sequence
+      <DT>length:10
+      <DT>nodash:
+      <DT>start: 3 3 3 6 5 3 3 3 2 7
+      <DT>The colors in the default color lookup table are: 0 White 8 Black 1
+      Yellow 9 Grey 1 2 Violet 10 Grey 2 3 Red 11 Grey 3 4 Aqua 12 Grey 4 5 Lime
+      Green 13 Grey 5 6 Blue 14 Grey 6 7 Purple 15 White
+    </DL>
+  </DL>
+</UL>
+</BODY>
+</HTML>

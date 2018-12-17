@@ -1,0 +1,118 @@
+     1	12:40	ls -l
+     2	12:40	cat gebc15.asm | ~/scripts/grep-asm | more
+     3	12:41	logout
+     4	17:18	cat > seq.brugia
+     5	12:38	cd /usr/local/annotation/BMC/jeisen/
+     6	12:38	ls
+     7	12:38	cd search_vs_combo2/
+     8	12:38	ls -l
+     9	12:38	cat combined.edit.notself.notmetca.published | grep PSEAE
+    10	12:39	cat combined.edit.notself.notmetca.published | grep PSEAE | trFpipe
+    11	12:39	cat combined.edit.notself.notmetca.published | grep PSEAE | trFpipe | gawk24
+    12	12:39	cat combined.edit.notself.notmetca.published | grep PSEAE | trFpipe | gawk24 | xgraph -P -nl
+    13	12:39	cat combined.edit.notself.notmetca.published.top | grep PSEAE | trFpipe | gawk24 | xgraph -P -nl
+    14	12:43	ls -l
+    15	12:43	ls -l blasts/
+    16	12:43	more blasts/BACTERIA_METCA_UNFINISHED-ORF00844.blastp.btab
+    17	12:43	cat > list1
+    18	12:44	select-seqs-from-multifasta.perl BMC.pep.edit.tmp list
+    19	12:44	select-seqs-from-multifasta.perl BMC.pep.edit.tmp list1
+    20	12:44	select-seqs-from-multifasta.perl BMC.pep.edit.tmp list1 > seq.BMC.orf00844
+    21	12:44	blastp /usr/local/db/eisen.combo.10_15_02 seq.BMC.orf00844 | more
+    22	12:46	ls -l
+    23	12:49	cat /usr/local/db/eisen.combo.10_15_02 | grep PLAFA
+    24	12:50	ls
+    25	12:50	grep PLAFA combined.edit.notself.notmetca.top
+    26	12:50	more count
+    27	12:50	more count
+    28	12:50	ls -l
+    29	12:51	cat combined.edit.notself.top | grep PLAFA
+    30	12:51	grep PLAFA combined
+    31	12:51	ls -l
+    32	12:51	grep EUKARY combined.edit.notself.top
+    33	12:53	select-seqs-from-multifasta.perl BMC.pep.edit.tmp list1
+    34	13:08	ls
+    35	13:08	cd
+    36	13:08	ls
+    37	13:09	cd projects/
+    38	13:09	ls
+    39	13:09	cd /usr/local/annotation/GCT/jeisen/Chlorosome/
+    40	13:09	ls
+    41	13:09	ls -l
+    42	13:09	more CT0104.aln
+    43	13:10	ls -l
+    44	13:10	mkdir run2
+    45	13:10	cd run2/
+    46	13:10	fasta-to-tree-6.plus_nraa.plus_phylip ../seqs.dab /usr/local/db/eisen.combo.10_15_02 0.000000000000000001 100
+    47	13:27	ls
+    48	13:27	unalias rm
+    49	13:27	rm *
+    50	13:27	fasta-to-tree-6.plus_nraa.plus_phylip ../seqs.dab /usr/local/db/eisen.combo.10_15_02 0.000000000000000001 25
+    51	10:20	ls -l
+    52	10:20	cd /usr/local/closure/GDE/
+    53	10:20	ls
+    54	10:20	cd jeisen/
+    55	10:20	ls
+    56	10:20	ls -l
+    57	10:20	du -s blastp/
+    58	10:20	ls -l blastp/
+    59	10:22	pwd
+    60	10:23	ls -l /usr/local/db/EISEN/
+    61	10:24	ls -l
+    62	10:24	cd /wildcat/projects/
+    63	10:24	ls
+    64	10:24	cd repair-all/
+    65	10:24	ls -l
+    66	10:25	mkdir eisen_repair_searches5
+    67	10:25	cd eisen_repair_searches5
+    68	10:25	fasta-to-tree-6.maxseqs ../combo_all1 /usr/local/db/EISEN/eisen.combo.11_15_02 0.0000000001 100
+    69	13:52	ls -l
+    70	13:52	belvu APES-nfo.ecoli.aln
+    71	13:59	ls
+    72	13:59	belvu -h
+    73	13:59	belvu &
+    74	13:59	belvu
+    75	14:00	ls -l
+    76	14:00	belvu APES-nfo.ecoli.aln
+    77	14:21	ls -l
+    78	14:22	ls -l
+    79	14:22	more ~/scripts/convert-aln-to-gde
+    80	14:22	more ~/scripts/auto_clustal_convert_to_gde
+    81	14:23	ls -l ~/scripts/convert*
+    82	14:23	mroe ~/scripts/convert_aln_to_msf_all
+    83	14:23	more ~/scripts/convert_aln_to_msf
+    84	14:24	emacs ~/scripts/convert_aln_to_msf
+    85	14:24	emacs ~/scripts/convert_aln_to_msf_all
+    86	14:26	ls *aln
+    87	14:26	~/scripts/convert_aln_to_msf_all
+    88	14:37	ls
+    89	14:38	ls -l DONE/
+    90	14:38	grep -c '>' DONE/BER-*
+    91	14:38	cd DONE/
+    92	14:38	njplot &
+    93	11:54	ls -l
+    94	11:55	cd
+    95	11:55	cd external_www/
+    96	11:55	ls
+    97	11:56	updateweb -h
+    98	11:56	ls -l
+    99	11:56	updateweb
+   100	14:45	pwd
+   101	14:49	telnet akela
+   102	14:49	ls -l
+   103	14:56	ls -l
+   104	14:56	cd ..
+   105	14:56	du -s *
+   106	14:57	ls -l external_www/
+   107	14:57	ls
+   108	14:57	pwd
+   109	14:57	ls -l
+   110	15:07	cd external_www/
+   111	15:07	ls
+   112	15:07	ls -l
+   113	15:07	ls -l
+   114	15:07	cd
+   115	15:07	cd external_www/
+   116	15:07	ls
+   117	15:07	du -s *
+   118	16:27	history >> history

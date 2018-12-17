@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 2.0 Mac">
+  <TITLE>Appendix B, Adding Functions</TITLE>
+</HEAD>
+<BODY>
+
+<H2>Appendix B, Adding Functions</H2>
+
+<P>The GDE uses a menu description language to define what external programs
+it can call, and what parameters and data to pass to each function. This
+language allows users to customize their own environment to suite individual
+needs. <BR>
+<BR>
+The following is how the GDE handles external programs when selected from
+a menu: <BR>
+<BR>
+<IMG SRC="fig10.GIF" ALIGN="TOP" WIDTH="407" HEIGHT="246" NATURALSIZEFLAG=
+"3"> <BR>
+<BR>
+Each step in this process is described in a file .GDEmenus in the user's
+current or home directory. <BR>
+<BR>
+The language used in this file describes three phases to an external function
+call. The first phase describes the menu item as it will appear, and the
+Unix command line that is actually run when it is selected. The second phase
+describes how to prompt for the parameters needed by the function. The third
+phase describes what data needs to be passed as input to the external function,
+and what data (if any) needs to be read back from its output. <BR>
+<BR>
+The form of the language is a simple keyword/value list delimited by the
+colon (:) character. The language retains old values until new ones are
+set. For example, setting the menu name is done once for all items in that
+menu, and is only reset when the next menu is reached. <BR>
+<BR>
+The keywords for phase one are: <BR>
+<BR>
+</P>
+
+<UL>
+  <LI><B>menu:menu name.</B> Name of current menu
+  <LI><B>item:item name.</B> Name of current menu item
+  <LI><B>itemmeta:meta_key.</B> Meta key equivalence (quick keys)
+  <LI><B>itemhelp:help_file.</B> Help file (either full path, or in GDE_HELP_DIR)
+  <LI><B>itemmethod:Unix command.</B> The item method command is a bit more
+  involved, it is the Unix command that will actually run the external program
+  intended. It is one line long, and can be up to 256 characters in length.
+  It can have embedded variable names (starting with a '$') that will be
+  replaced with appropriate values later on. It can consist of multiple Unix
+  commands separated by semi-colons (;), and may contain shell scripts and
+  background processes as well as simple command names. Examples will be
+  given later.
+</UL>
+
+<P>The keywords for phase two are: <BR>
+<BR>
+</P>
+
+<UL>
+  <LI><B>arg:argument_variable_name. </B>Name of this variable. It will appear
+  in the itemmethod: line with a dollar sign ($) in front of it.
+  <LI><B>argtype:slider,chooser,choice_menu or text.</B> The type of graphic
+  object representing this argument.
+  <LI><B>arglabel:descriptive label. </B>A short description of what this
+  argument represents
+  <LI><B>argmin:minimum_value (integer).</B> Used for sliders.
+  <LI><B>argmax:maximum_value (integer).</B> Used for sliders.
+  <LI><B>argvalue:default_value (integer). </B>It is the numeric value associated
+  with sliders or the default choice in choosers, choice_menus, and choice_lists
+  (the first choice is 0, the second is 1 etc.)
+  <LI><B>argtext:default value.</B> Used for text fields.
+  <LI><B>argchoice:displayed value:passed value.</B> Used for choosers and
+  choice_menus. The first value is displayed on screen, and the second value
+  is passed to the itemmethod line.
+</UL>
+
+<P>The keywords for phase three are as follows:</P>
+
+<UL>
+  <LI><B>in:input_file.</B> GDE will replace this name with a randomly generated
+  temporary file name. It will then write the selected data out to this file.
+  <LI><B>informat:file_format.</B> Write data to this file for input to this
+  function. Currently support values are Genbank, and flat.
+  <LI><B>inmask: </B>This data can be controlled by a selection mask.
+  <LI><B>insave:</B> Do not remove this file after running the external function.
+  This is useful for functions put in the background.
+  <LI><B>out:output_file.</B> GDE will replace this name with a randomly
+  generated temporary file name. It is up to the external function to fill
+  this file with any results that might be read back into the GDE.
+  <LI><B>outformat:file_format.</B> The data in the output file will be in
+  this format. Currently support values are colormask, Genbank, and flat.
+  <LI><B>outsave:</B> Do not remove this file after reading. This is useful
+  for background tasks.
+  <LI><B>outoverwrite:</B> Overwrite existing sequences in the current GDE
+  window. Currently supported with &quot;gde&quot; format only.
+</UL>
+
+<P>Here is a sample dialog box, and it's entry in the .GDEmenus file: <BR>
+</P>
+
+<BLOCKQUOTE>
+  <P><BR>
+  Fig. </P>
+</BLOCKQUOTE>
+
+<P><BR>
+<BR>
+Using the default parameters given in the dialog box, the executed Unix
+command line would be: <BR>
+<BR>
+<I>(tr '[a-z]' '[A-Z]' &lt; .gde_001 &gt;.gde_001.tmp ; mv .gde_001.tmp
+CAPS ; gde CAPS -Wx medium ; rm .gde_001 ) &amp;</I> <BR>
+<BR>
+where .gde_001 is the name of the temporary file generated by the GDE which
+contains the selected sequences in flat file format. Since the GDE runs
+this command in the background ('&amp;' at the end) it is necessary to specify
+the insave: line, and to remove all temporary files manually. There is no
+output file specific because the data is not loaded back into the current
+GDE window, but rather a new GDE window is opened on the file. A simpler
+command that reloads the data after conversion might be: <BR>
+<BR>
+<I>item:All caps<BR>
+itemmethod:tr '[a-z]' '[A-Z]' OUTPUT<BR>
+<BR>
+in:INPUT<BR>
+informat:flat<BR>
+<BR>
+out:OUTPUT<BR>
+outformat:flat</I><BR>
+<BR>
+<BR>
+In this example, no arguments are specified, and so no dialog box will appear.
+The command is not run in the background, so the GDE can clean up after
+itself automatically. The converted sequence is automatically loaded back
+into the current GDE window. <BR>
+<BR>
+In general, the easiest type of program to integrate into the GDE is a program
+completely driven from a Unix command line. Interactive programs can be
+tied in (MFOLD for example), however shell scripts must be used to drive
+the parameter entry for these programs. Programs of the form: <BR>
+<BR>
+<I>program_name -a1 argument1 -a2 arguement2 -f inputfile -er errorfile
+&gt; outputfile</I> <BR>
+<BR>
+can be specified in the .GDEmenus file directly. As this is the general
+form of most one Unix commands, these tend to be simpler to implement under
+the GDE. <BR>
+<BR>
+As functions grow in complexity, they may begin to need a user interface
+of their own. In these cases, the command line calling arguments are still
+necessary in order to allow the GDE to hand them the appropriate data, and
+possible retrieve results after some external manipulation.
+</BODY>
+</HTML>
